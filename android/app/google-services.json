@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "520134677200",
+    "project_id": "eventplannew",
+    "storage_bucket": "eventplannew.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520134677200:android:5f0fd02ce416db0b5cc4d5",
+        "android_client_info": {
+          "package_name": "com.eventplan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMNDBjNnJm2SWTGi1I9Kv17P0-o24qLwU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
