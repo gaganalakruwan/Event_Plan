@@ -37,11 +37,12 @@ type InputProps = {
   keyboardType?: KeyboardType;
   autoFocus?: boolean | false;
   rightIcon?: RightIconProps;
-  leftIcon?:LeftIconProps;
+  leftIcon?: LeftIconProps;
   inputStyle?: any;
   onFocus?: void;
-  error?:string;
-  editable?:boolean;
+  error?: string;
+  editable?: boolean;
+  testId?: string;
 };
 
 const InputText = ({
@@ -57,7 +58,8 @@ const InputText = ({
   inputStyle,
   onFocus,
   error,
-  editable
+  editable,
+  testId,
 }: InputProps) => {
   const {
     iconName,
@@ -66,12 +68,8 @@ const InputText = ({
     iconSize,
     action = () => {},
   } = (rightIcon as RightIconProps) || {};
-  const {
-    lIconName,
-    lIconProvider,
-    lIconColor,
-    lIconSize,
-  } = (leftIcon as LeftIconProps) || {};
+  const {lIconName, lIconProvider, lIconColor, lIconSize} =
+    (leftIcon as LeftIconProps) || {};
   const [passwordVisibility, setPasswordVisibility] = useState(secureTextEntry);
 
   const toggleVisibility = () => {
@@ -82,19 +80,19 @@ const InputText = ({
     if (iconName) {
       return iconName;
     }
-    if (passwordVisibility) {
+    if (!passwordVisibility) {
       return 'eye';
     } else {
       return 'eye-slash';
     }
   }, [iconName, passwordVisibility]);
 
-
   return (
     <View style={[style.container, {...containerStyle}]}>
       <Text style={style.title}>{placeHolder}</Text>
       <View style={style.inputWrapper}>
         <TextInput
+          testID={testId}
           secureTextEntry={passwordVisibility}
           keyboardType={keyboardType}
           value={value}
@@ -125,7 +123,7 @@ const InputText = ({
             />
           </TouchableOpacity>
         )}
-        {(lIconName) && (
+        {lIconName && (
           <TouchableOpacity
             style={style.leftIconWrapper}
             onPress={secureTextEntry ? toggleVisibility : action}>

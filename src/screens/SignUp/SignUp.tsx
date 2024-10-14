@@ -11,8 +11,6 @@ import InputText from '../../components/InputText';
 import style from './style';
 import {useNavigation} from '@react-navigation/native';
 import ActionButton from 'components/ActionButton';
-import {getScaleNumber} from 'utils/refDimention';
-
 import {object, string, ref} from 'yup';
 import {Controller, useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
@@ -185,7 +183,7 @@ export const useSignup = () => {
     try {
       dispatch(startLoading());
       dispatch(setMessage('Creating User'));
-      const userCredential = await auth()
+      await auth()
         .createUserWithEmailAndPassword(data.username, data.password)
         .then(res => {
           console.log(res.user);
@@ -195,10 +193,10 @@ export const useSignup = () => {
           ]);
         })
         .catch(error => {});
-      //   const user = userCredential.user;
-
-      //   console.log('User signed up successfully:', user);
     } catch (error) {
+      Alert.alert('Error', 'User create Fail, please try again later', [
+        {text: 'OK', onPress: () => goToLogin()},
+      ]);
       console.error('Signup Error:', error);
     }
   });

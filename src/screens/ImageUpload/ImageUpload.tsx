@@ -64,12 +64,7 @@ const ImageUpload = () => {
       console.log('Camera permission not granted');
       // Optionally request the permission
       const grantedRequest = await requestCameraPermission();
-      Alert.alert('Error', 'Please add permission manually', [
-        {
-          text: 'Ok',
-          onPress: () => {},
-        },
-      ]);
+      
       return grantedRequest;
     }
   };

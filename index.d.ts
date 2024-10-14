@@ -16,7 +16,5 @@ declare module 'react-native-vector-icons/Zocial';
 declare module 'react-native-vector-icons/EvilIcons';
 declare module 'react-native-vector-icons/AntDesign';
 declare module 'react-native-vector-icons/FontAwesome5Pro';
-declare module 'react-native-video';
-declare module '@shedaltd/react-native-azure-ad-2';
 declare module 'react-native-push-notification';
 declare module 'base-64';

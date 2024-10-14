@@ -11,10 +11,10 @@ type Props = {
 const ImageDescription = ({imageUri, title, description}: Props) => {
   return (
     <View style={style.container}>
-      <Image style={style.image} source={{uri: imageUri}} />
+      <Image testID='imageComponent' style={style.image} source={{uri: imageUri}} />
       <View style={style.detailsContainer}>
-        <Text style={style.title}>{title}</Text>
-        <Text numberOfLines={4} style={style.description}>
+        <Text testID='titleText' style={style.title}>{title}</Text>
+        <Text testID='descriptionText' numberOfLines={4} style={style.description}>
           {description}
         </Text>
       </View>

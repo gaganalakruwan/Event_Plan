@@ -11,8 +11,8 @@ type Props = {
 const CommentBox = ({email, body}: Props) => {
   return (
     <View style={style.container}>
-      <Text style={style.emailText}>{email}</Text>
-      <Text style={style.bodyText}>{body}</Text>
+      <Text testID='emailText' style={style.emailText}>{email}</Text>
+      <Text testID='commentBody' style={style.bodyText}>{body}</Text>
     </View>
   );
 };

@@ -21,11 +21,14 @@ const CustomDraverContent = (props: any) => {
   const [email, setEmail] = useState('');
   const {authData} = useSelector((state: ReduxState) => state.auth);
 
-  useEffect(() => {
-    getProfileData();
-  }, [navigation]);
+  useFocusEffect(
+    React.useCallback(() => {
+      getProfileData();
+    }, [props]),
+  );
 
   const getProfileData = async () => {
+    console.log(".....");
     const userProfile = await firestore()
       .collection('users')
       .doc(authData.userId)

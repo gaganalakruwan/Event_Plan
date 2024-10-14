@@ -65,7 +65,7 @@ const Profile = () => {
       .get();
 
     if (userProfile.exists) {
-      const data = userProfile.data();
+      const data = userProfile.data()as profileData;
       if (data) {
         setUserData(data);
         setValue('firstName', data.firstName);
@@ -90,7 +90,7 @@ const Profile = () => {
       launchCamera(options, response => {
         if (response.didCancel) {
           console.log('User cancelled camera');
-        } else if (response.error) {
+        } else if (response?.error) {
           console.error('Camera Error: ', response.error);
         } else {
           const source = {uri: response.assets[0].uri};
@@ -160,7 +160,7 @@ const Profile = () => {
           render={({field: {value, onChange}, fieldState: {error}}) => (
             <>
               <InputText
-                value={value}
+                value={value??''}
                 onChange={onChange}
                 placeHolder="First Name"
                 containerStyle={style.inputUsername}
@@ -176,7 +176,7 @@ const Profile = () => {
           render={({field: {value, onChange}, fieldState: {error}}) => (
             <>
               <InputText
-                value={value}
+                value={value??''}
                 onChange={onChange}
                 placeHolder="Last Name"
                 error={error?.message}
@@ -191,7 +191,7 @@ const Profile = () => {
           render={({field: {value, onChange}, fieldState: {error}}) => (
             <>
               <InputText
-                value={value}
+                value={value??''}
                 onChange={onChange}
                 placeHolder="Email"
                 error={error?.message}
@@ -206,7 +206,7 @@ const Profile = () => {
           render={({field: {value, onChange}, fieldState: {error}}) => (
             <>
               <InputText
-                value={value}
+                value={value??''}
                 onChange={onChange}
                 placeHolder="Phone Number"
                 error={error?.message}
@@ -221,7 +221,7 @@ const Profile = () => {
           render={({field: {value, onChange}, fieldState: {error}}) => (
             <>
               <InputText
-                value={value}
+                value={value??''}
                 onChange={onChange}
                 placeHolder="Address"
                 error={error?.message}

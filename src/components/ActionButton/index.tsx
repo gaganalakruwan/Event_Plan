@@ -28,6 +28,7 @@ type InputProps = {
   onPress: () => void;
   customStyle?: any;
   titleStyle?: any;
+  testId?:string;
 };
 
 const ActionButton = ({
@@ -39,13 +40,14 @@ const ActionButton = ({
   onPress,
   customStyle,
   titleStyle,
+  testId
 }: InputProps) => {
   const {iconName, iconProvider, iconColor, iconSize} =
     (rightIcon as RightIconProps) || {};
   const {lIconName, lIconProvider, lIconColor, lIconSize} =
     (leftIcon as LeftIconProps) || {};
   return (
-    <TouchableOpacity style={[style.container, customStyle]} onPress={onPress}>
+    <TouchableOpacity style={[style.container, customStyle]} onPress={onPress} testID={testId}>
       {(leftIcon || isLeftIcon) && (
         <CustomIcon
           icon={lIconName || 'arrow-left'}

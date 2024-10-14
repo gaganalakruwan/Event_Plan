@@ -126,12 +126,12 @@ const Home = () => {
         isMenu={true}
       />
       <ScrollView style={style.scrollContainer}>
-        {/* {sliderData.length > 0 && (
+        {sliderData.length > 0 && (
           <ImageSlider
             images={sliderData}
             imageHeight={250}
             showNavigationButtons={false}
-            showIndicatorDots={false}
+            showIndicatorDots={true}
             imageLabel={false}
             label="Example Label"
             extrapolate="clamp"
@@ -139,7 +139,7 @@ const Home = () => {
             containerStyle={{marginBottom: 20}}
             radius={5}
           />
-        )} */}
+        )}
         <View style={style.innerContainer}>
           <Text style={style.eventText}>Gagana's Wedding</Text>
           <Text style={style.addressText}>

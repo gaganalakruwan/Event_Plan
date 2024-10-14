@@ -4,15 +4,13 @@ import {
   KeyboardAvoidingView,
   Text,
   View,
+  TouchableOpacity,
 } from 'react-native';
 import React, {useCallback, useEffect, useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import InputText from '../../components/InputText';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-
 import style from './style';
 import {useNavigation} from '@react-navigation/native';
-
 import CustomIcon from 'components/CustomIcon';
 import colors from 'constant/colors';
 import ActionButton from 'components/ActionButton';
@@ -78,6 +76,7 @@ const Login = () => {
             render={({field: {value, onChange}, fieldState: {error}}) => (
               <>
                 <InputText
+                  testId="email"
                   value={value}
                   onChange={onChange}
                   placeHolder="Email"
@@ -98,6 +97,7 @@ const Login = () => {
             render={({field: {value, onChange}, fieldState: {error}}) => (
               <>
                 <InputText
+                  testId={'password'}
                   value={value}
                   onChange={onChange}
                   secureTextEntry
@@ -114,8 +114,7 @@ const Login = () => {
             )}
           />
           <View style={style.restoreContainer}>
-            <TouchableOpacity
-              style={style.restoreInner}>
+            <TouchableOpacity style={style.restoreInner}>
               <Text style={style.restoreText}>Restore Password</Text>
               <CustomIcon
                 type={'Feather'}
@@ -127,12 +126,14 @@ const Login = () => {
           </View>
           <View style={style.bittonContainer}>
             <ActionButton
+              testId="Login"
               title={'Login'}
               onPress={onSubmit}
               isRightIcon={true}
             />
             <ActionButton
               title={'Sign Up'}
+              testId="Sign_Up"
               onPress={goToSignUp}
               isRightIcon={true}
               customStyle={{marginTop: 20}}
@@ -204,7 +205,7 @@ export const useLogin = () => {
           Alert.alert('Error', 'Invalied Credentials', [{text: 'Ok'}]);
         });
     } catch (error) {
-      console.error('Signup Error:', error);
+      console.log('Signup Error:', error);
     }
   });
 
