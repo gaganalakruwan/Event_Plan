@@ -185,6 +185,10 @@ export const useLogin = () => {
     resolver: yupResolver(schema),
   });
 
+  /**
+   * Google signin function
+   */
+
   const onSubmit = handleSubmit(async data => {
     try {
       dispatch(startLoading());

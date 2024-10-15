@@ -178,6 +178,12 @@ export const useSignupMore = () => {
     saveUserData(data, authData.email, imageUri);
   });
 
+  /**
+   * add user mo information to firestore
+   * @param data 
+   * @param email 
+   * @param imageUrl 
+   */
   const saveUserData = async (data: any, email: string, imageUrl: string) => {
     try {
       await firestore()

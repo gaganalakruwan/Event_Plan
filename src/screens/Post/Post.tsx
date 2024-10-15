@@ -37,6 +37,10 @@ const Post = () => {
     getAllComments();
   }, []);
 
+  /**
+   * Get all post from api
+   */
+
   const getAllPosts = () => {
     dispatch(startLoading());
     dispatch(setMessage('Loading Posts'));
@@ -54,6 +58,11 @@ const Post = () => {
       }),
     );
   };
+
+  /**
+   * Get all comments from api
+   */
+
   const getAllComments = () => {
     dispatch(startLoading());
     dispatch(setMessage('Loading Posts'));
@@ -71,6 +80,11 @@ const Post = () => {
       }),
     );
   };
+
+  /**
+   * Here we filter comments according to select post and set to filterComment variable
+   * @param postId 
+   */
 
   const filterCommsnts = (postId: number) => {
     let filterData = comments.filter((a: comments) => a.postId == postId);

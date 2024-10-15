@@ -139,6 +139,10 @@ const SignUp = () => {
 
 export default SignUp;
 
+/**
+ * validation scema of each fields
+ */
+
 const schema = object({
   username: string()
     .required('Please enter Email')
@@ -179,6 +183,9 @@ export const useSignup = () => {
     resolver: yupResolver(schema),
   });
 
+  /**
+   * Firebase signup function
+   */
   const onSubmit = handleSubmit(async data => {
     try {
       dispatch(startLoading());

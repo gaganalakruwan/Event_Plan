@@ -69,6 +69,11 @@ const ImageUpload = () => {
     }
   };
 
+  /**
+   * 
+   * Image upload to storage
+   */
+
   const uploadImage = async () => {
     try {
       if (imageUri) {

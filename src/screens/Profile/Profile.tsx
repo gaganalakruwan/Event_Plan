@@ -281,6 +281,9 @@ export const useSignupMore = () => {
     resolver: yupResolver(schema),
   });
 
+  /**
+   * Update user information
+   */
   const onSubmit = handleSubmit(async data => {
     try {
       if (isImageSave) {
